@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Study With Omki</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        /* HEADER */
+
+        header {
+            background: linear-gradient(135deg, #1565c0, #42a5f5);
+            color: white;
+            padding: 28px 15px;
+            text-align: center;
+        }
+
+        header .logo {
+            font-size: 45px;
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin: 8px 0;
+        }
+
+        header p {
+            font-size: 16px;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            background: white;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+
+        nav button {
+            border: none;
+            background: transparent;
+            color: #1565c0;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        /* MAIN */
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 25px 15px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 20px 10px 30px;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: #555;
+            font-size: 17px;
+        }
+
+        /* SUBJECTS */
+
+        .section-title {
+            text-align: center;
+            margin: 15px 0 20px;
+            font-size: 25px;
+        }
+
+        .subjects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 18px;
+        }
+
+        .subject {
+            background: white;
+            border-radius: 18px;
+            padding: 25px 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .subject:hover {
+            transform: translateY(-5px);
+        }
+
+        .subject-icon {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .subject h3 {
+            color: #1565c0;
+            margin-bottom: 7px;
+        }
+
+        .subject p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* CONTENT AREA */
+
+        #contentArea {
+            margin-top: 35px;
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .content-box h2 {
+            color: #1565c0;
+            margin-bottom: 8px;
+        }
+
+        .content-box > p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* OPTIONS */
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 14px;
+        }
+
+        .option {
+            border: none;
+            background: #e3f2fd;
+            color: #1565c0;
+            border-radius: 12px;
+            padding: 18px 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: #bbdefb;
+        }
+
+        /* CHAPTERS */
+
+        .chapters {
+            display: grid;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .chapter {
+            background: #f7f9fc;
+            border-left: 5px solid #1565c0;
+            padding: 16px;
+            border-radius: 10px;
+        }
+
+        .chapter h3 {
+            margin-bottom: 6px;
+        }
+
+        .chapter button {
+            margin-top: 10px;
+            border: none;
+            background: #1565c0;
+            color: white;
+            padding: 9px 14px;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        /* ABOUT */
+
+        .about {
+            margin-top: 35px;
+            background: #e3f2fd;
+            border-radius: 18px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .about h2 {
+            margin-bottom: 10px;
+            color: #1565c0;
+        }
+
+        /* FOOTER */
+
+        footer {
+            margin-top: 40px;
+            background: #17202a;
+            color: white;
+            text-align: center;
+            padding: 22px 10px;
+        }
+
+        footer p {
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 27px;
+            }
+
+            .hero h2 {
+                font-size: 23px;
+            }
+
+            nav {
+                overflow-x: auto;
+                justify-content: flex-start;
+            }
+
+            nav button {
+                white-space: nowrap;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">📚</div>
+
+        <h1>Study With Omki</h1>
+
+        <p>इयत्ता 10वीच्या विद्यार्थ्यांसाठी अभ्यासाचे एक ठिकाण</p>
+
+    </header>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <button onclick="goHome()">🏠 Home</button>
+
+        <button onclick="scrollToSubjects()">📚 Subjects</button>
+
+        <button onclick="showAbout()">ℹ️ About</button>
+
+    </nav>
+
+
+    <!-- MAIN -->
+
+    <main class="container">
+
+
+        <!-- HERO -->
+
+        <section class="hero" id="home">
+
+            <h2>तुमच्या अभ्यासाची सुरुवात इथून करा 🎯</h2>
+
+            <p>
+                Notes • Important Questions • MCQs • Question Papers
+            </p>
+
+        </section>
+
+
+        <!-- SUBJECTS -->
+
+        <section id="subjects">
+
+            <h2 class="section-title">
+                📚 Choose Your Subject
+            </h2>
+
+
+            <div class="subjects">
+
+
+                <div class="subject"
+                     onclick="openSubject('मराठी','📖')">
+
+                    <div class="subject-icon">📖</div>
+
+                    <h3>मराठी</h3>
+
+                    <p>Notes आणि प्रश्न</p>
+
+                </div>
+
+
+                <div class="subject"
+                     onclick="openSubject('English','📘')">
+
+                    <div class="subject-icon">📘</div>
+
+                    <h3>English</h3>
+
+                    <p>Notes आणि Grammar</p>
+
+                </div>
+
+
+                <div class="subject"
+                     onclick="openSubject('Mathematics','➗')">
+
+                    <div class="subject-icon">➗</div>
+
+                    <h3>Mathematics</h3>
+
+                    <p>Examples आणि Practice</p>
+
+                </div>
+
+
+                <div class="subject"
+                     onclick="openSubject('Science','🔬')">
+
+                    <div class="subject-icon">🔬</div>
+
+                    <h3>Science</h3>
+
+                    <p>Notes आणि Diagrams</p>
+
+                </div>
+
+
+                <div class="subject"
+                     onclick="openSubject('Social Science','🌍')">
+
+                    <div class="subject-icon">🌍</div>
+
+                    <h3>Social Science</h3>
+
+                    <p>History, Geography आणि Civics</p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- DYNAMIC CONTENT -->
+
+        <section id="contentArea">
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section class="about" id="about">
+
+            <h2>💡 Study With Omki</h2>
+
+            <p>
+                इयत्ता 10वीच्या विद्यार्थ्यांसाठी
+                Notes, Questions, MCQs आणि अभ्यासाचे
+                साहित्य एका ठिकाणी उपलब्ध करून देण्याचा
+                हा प्रयत्न आहे.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>© 2026 Study With Omki</p>
+
+        <p>Made for Students 📚</p>
+
+    </footer>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+
+        /* HOME */
+
+        function goHome() {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        /* SUBJECTS */
+
+        function scrollToSubjects() {
+
+            document.getElementById("subjects")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+
+        /* ABOUT */
+
+        function showAbout() {
+
+            document.getElementById("about")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+
+        /* OPEN SUBJECT */
+
+        function openSubject(subject, icon) {
+
+
+            const content =
+            document.getElementById("contentArea");
+
+
+            content.innerHTML = `
+
+                <div class="content-box">
+
+                    <h2>${icon} ${subject}</h2>
+
+                    <p>
+                        ${subject} साठी खालील विभाग निवडा.
+                    </p>
+
+
+                    <div class="options">
+
+                        <button
+                            class="option"
+                            onclick="showChapters('${subject}','📖')">
+
+                            📚 Textbook
+
+                        </button>
+
+
+                        <button
+                            class="option"
+                            onclick="showChapters('${subject}','⭐')">
+
+                            ⭐ IMP Notes
+
+                        </button>
+
+
+                        <button
+                            class="option"
+                            onclick="showChapters('${subject}','📝')">
+
+                            📝 IMP Questions
+
+                        </button>
+
+
+                        <button
+                            class="option"
+                            onclick="showChapters('${subject}','🎯')">
+
+                            🎯 MCQ Practice
+
+                        </button>
+
+
+                        <button
+                            class="option"
+                            onclick="showChapters('${subject}','📄')">
+
+                            📄 Question Papers
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            content.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+
+
+        /* CHAPTERS */
+
+        function showChapters(subject, type) {
+
+
+            const content =
+            document.getElementById("contentArea");
+
+
+            content.innerHTML = `
+
+                <div class="content-box">
+
+                    <h2>
+                        ${type} ${subject}
+                    </h2>
+
+                    <p>
+                        Chapters येथे दिसतील.
+                        Notes उपलब्ध झाल्यावर
+                        आपण त्या येथे जोडू.
+                    </p>
+
+
+                    <div class="chapters">
+
+
+                        <div class="chapter">
+
+                            <h3>
+                                Chapter 1
+                            </h3>
+
+                            <p>
+                                Content लवकरच उपलब्ध होईल.
+                            </p>
+
+                            <button
+                                onclick="comingSoon()">
+
+                                📖 Open
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="chapter">
+
+                            <h3>
+                                Chapter 2
+                            </h3>
+
+                            <p>
+                                Content लवकरच उपलब्ध होईल.
+                            </p>
+
+                            <button
+                                onclick="comingSoon()">
+
+                                📖 Open
+
+                            </button>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            content.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+
+
+        /* COMING SOON */
+
+        function comingSoon() {
+
+            alert(
+                "या Chapter चे Notes आपण लवकरच येथे जोडणार आहोत. 📚"
+            );
+
+        }
+
+
+    </script>
+
+</body>
+</html>
